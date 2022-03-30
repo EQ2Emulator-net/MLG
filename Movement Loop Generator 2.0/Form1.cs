@@ -88,12 +88,16 @@ namespace Movement_Loop_Generator_2._0
             bool found = false;
 
             int npcname_count = 0;
-            string [] split = NPCList[listBox_NPCs.SelectedItem.ToString()].Split(' ');
-            string npcname = split[0];
+            string npcname = listBox_NPCs.SelectedItem.ToString();
+            string [] split = NPCList[npcname].Split(' ');
 
             if (split.Length > 1)
             {
-                npcname_count = Convert.ToInt32(split[1]);
+                int v;
+                if (Int32.TryParse(split[split.Length - 1], out v))
+                {
+                    npcname_count = v;
+                }           
             }
             
 
